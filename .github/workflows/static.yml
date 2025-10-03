@@ -1,8 +1,8 @@
-name: Deploy Hugo site to Pages
+name: Deploy Hugo (Docsy) to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -10,9 +10,9 @@ permissions:
   pages: write
   id-token: write
 
-concurrency: 
+concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -20,33 +20,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true   # se usi Docsy come submodule
+          fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.134.2'   # ok anche una versione recente
+          hugo-version: '0.134.3'
           extended: true
 
-      # (Opzionale ma consigliato per Docsy: PostCSS)
-      - name: Setup Node (for PostCSS)
+      # Docsy richiede PostCSS per gli asset (autoprefixer + postcss-cli)
+      - name: Setup Node (per PostCSS)
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install PostCSS deps if package.json exists
+
+      - name: Install PostCSS deps
         run: |
-          if [ -f package.json ]; then
-            npm ci || npm i
-          fi
+          npm install -D autoprefixer postcss-cli
 
       - name: Build
-        env:
-          HUGO_ENV: production
-        run: hugo --minify
+        run: |
+          hugo --minify
+          # evita processing Jekyll su Pages
+          touch public/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public  
+          path: ./public
 
   deploy:
     environment:
