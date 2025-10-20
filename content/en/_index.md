@@ -4,8 +4,7 @@ title: Alproy
 
 {{< blocks/cover 
     title=""
-    image=""
-    color="dark"
+    image_anchor="center"
     height="full" 
 >}}
 
