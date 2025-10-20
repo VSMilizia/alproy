@@ -3,13 +3,16 @@ title: Alproy
 ---
 
 {{< blocks/cover 
-    title="Alproy" 
-    subtitle="Hospitality consultant"
+    title=""
     color="dark"
     height="full" 
 >}}
 
-{{< blocks/link-down color="info" >}}
+<div class="text-center">
+  <h1 class="mt-4 text-light">Alproy</h1>
+  <p class="lead text-light">Hospitality consultant</p>
+</div>
+
 {{< /blocks/cover >}}
 
 
