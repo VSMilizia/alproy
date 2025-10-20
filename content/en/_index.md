@@ -1,10 +1,14 @@
 ---
-title: Goldydocs
+title: Alproy
 ---
 
-{{< blocks/cover title="Alproy" image_anchor="top" height="full" >}}
+{{< blocks/cover 
+    title="Alproy" 
+    subtitle="Hospitality consultant"
+    color="dark"
+    height="full" 
+>}}
 
-<p class="lead mt-5">Hostelery consultant</p>
 {{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
