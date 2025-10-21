@@ -1,6 +1,24 @@
 ---
-title: Alproy
+title: "Alproy Consulting"
+type: landing
+weight: 1
+description: >
+  Consultoría técnica y diseño funcional para Hospitality y Food & Beverage.
+  Expertos en cocinas profesionales, flujos operativos y soluciones integradas para proyectos hoteleros y gastronómicos.
+summary: >
+  Consultoría integral para cocinas centrales, resorts y espacios F&B.
+  Diseño, ingeniería y gestión culinaria de gran escala.
+image: "/images/alproy-header.jpg"
+hero:
+  title: "Consultoría técnica para Hospitality & F&B"
+  subtitle: "Diseñamos y optimizamos cocinas profesionales, resorts y operaciones gastronómicas de alto rendimiento."
+menu:
+  main:
+    name: "Inicio"
+    weight: 1
+draft: false
 ---
+
 
 {{< blocks/cover 
     title=""
@@ -9,7 +27,7 @@ title: Alproy
 >}}
 
 <div class="text-center">
-  <h1 class="mt-4 text-light">Alproy</h1>
+  <h1 style="font-family: 'Bebas Neue Pro', sans-serif; font-weight: 600; font-style: normal";class="mt-4 text-light">Alproy</h1>
   <p class="lead text-light">Hospitality consultant</p>
 </div>
 
